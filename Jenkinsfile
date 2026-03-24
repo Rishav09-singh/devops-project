@@ -7,11 +7,7 @@ pipeline {
 
     stages {
 
-        stage('Clone Code') {
-            steps {
-                git 'https://github.com/Rishav09-singh/devops-project.git'
-            }
-        }
+
 
         stage('Build Docker Image') {
             steps {
