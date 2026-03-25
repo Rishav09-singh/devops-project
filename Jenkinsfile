@@ -2,12 +2,10 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = "your-dockerhub-username/devops-app"
+        DOCKER_IMAGE = "rishavsingh09/devops-app"
     }
 
     stages {
-
-
 
         stage('Build Docker Image') {
             steps {
