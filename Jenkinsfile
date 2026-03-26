@@ -31,14 +31,17 @@ pipeline {
             }
         }
 
-        stage('Deploy on EC2') {
-            steps {
-                sh '''
-                docker stop devops-container || true
-                docker rm devops-container || true
-                docker run -d -p 80:3000 --name devops-container $DOCKER_IMAGE
-                '''
-            }
-        }
+       stage('Deploy on App Server') {
+    steps {
+        sh '''
+        ssh -o StrictHostKeyChecking=no ubuntu@54.252.167.15 << EOF
+        docker pull rishavsingh09/devops-app
+        docker stop devops-container || true
+        docker rm devops-container || true
+        docker run -d -p 80:3000 --name devops-container rishavsingh09/devops-app
+        EOF
+        '''
+    }
+}
     }
 }
