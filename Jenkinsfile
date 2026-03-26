@@ -31,7 +31,7 @@ pipeline {
             }
         }
 
-       stage('Deploy on App Server') {
+      stage('Deploy on App Server') {
     steps {
         sh '''
         ssh -o StrictHostKeyChecking=no ubuntu@54.252.167.15 << EOF
